@@ -24,7 +24,7 @@ BEGIN
     SELECT TaskID, TaskName, TaskDescription, AssignedUserIDs, Status, IsDelayed,
            Deadline, CreatedOn, CreatedBy, UpdatedOn, UpdatedBy
     FROM Tasks
-    WHERE (@Status IS NULL OR Status = @Status)
+    WHERE (@Status IS NULL OR Status = @Status) AND Status <> 4
       AND (@AssignedUserID IS NULL OR AssignedUserIDs LIKE '%' + CAST(@AssignedUserID AS NVARCHAR) + '%')
       AND (@IsDelayed IS NULL OR IsDelayed = @IsDelayed)
       AND (@SearchTerm IS NULL OR TaskName LIKE '%' + @SearchTerm + '%' OR TaskDescription LIKE '%' + @SearchTerm + '%')
