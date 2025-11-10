@@ -1,0 +1,17 @@
+C:\PERSONAL\TaskManagementApp\TaskManagementApp.Infrastructure\bin\Debug\net8.0\TaskManagementApp.Infrastructure.deps.json
+C:\PERSONAL\TaskManagementApp\TaskManagementApp.Infrastructure\bin\Debug\net8.0\TaskManagementApp.Infrastructure.dll
+C:\PERSONAL\TaskManagementApp\TaskManagementApp.Infrastructure\bin\Debug\net8.0\TaskManagementApp.Infrastructure.pdb
+C:\PERSONAL\TaskManagementApp\TaskManagementApp.Infrastructure\bin\Debug\net8.0\TaskManagementApp.Application.dll
+C:\PERSONAL\TaskManagementApp\TaskManagementApp.Infrastructure\bin\Debug\net8.0\TaskManagementApp.Domain.dll
+C:\PERSONAL\TaskManagementApp\TaskManagementApp.Infrastructure\bin\Debug\net8.0\TaskManagementApp.Application.pdb
+C:\PERSONAL\TaskManagementApp\TaskManagementApp.Infrastructure\bin\Debug\net8.0\TaskManagementApp.Domain.pdb
+C:\PERSONAL\TaskManagementApp\TaskManagementApp.Infrastructure\obj\Debug\net8.0\TaskManagementApp.Infrastructure.csproj.AssemblyReference.cache
+C:\PERSONAL\TaskManagementApp\TaskManagementApp.Infrastructure\obj\Debug\net8.0\TaskManagementApp.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\PERSONAL\TaskManagementApp\TaskManagementApp.Infrastructure\obj\Debug\net8.0\TaskManagementApp.Infrastructure.AssemblyInfoInputs.cache
+C:\PERSONAL\TaskManagementApp\TaskManagementApp.Infrastructure\obj\Debug\net8.0\TaskManagementApp.Infrastructure.AssemblyInfo.cs
+C:\PERSONAL\TaskManagementApp\TaskManagementApp.Infrastructure\obj\Debug\net8.0\TaskManagementApp.Infrastructure.csproj.CoreCompileInputs.cache
+C:\PERSONAL\TaskManagementApp\TaskManagementApp.Infrastructure\obj\Debug\net8.0\TaskMana.C4BDB0B3.Up2Date
+C:\PERSONAL\TaskManagementApp\TaskManagementApp.Infrastructure\obj\Debug\net8.0\TaskManagementApp.Infrastructure.dll
+C:\PERSONAL\TaskManagementApp\TaskManagementApp.Infrastructure\obj\Debug\net8.0\refint\TaskManagementApp.Infrastructure.dll
+C:\PERSONAL\TaskManagementApp\TaskManagementApp.Infrastructure\obj\Debug\net8.0\TaskManagementApp.Infrastructure.pdb
+C:\PERSONAL\TaskManagementApp\TaskManagementApp.Infrastructure\obj\Debug\net8.0\ref\TaskManagementApp.Infrastructure.dll

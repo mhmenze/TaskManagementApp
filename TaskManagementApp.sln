@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagementApp.Api", "TaskManagementApp.Api\TaskManagementApp.Api.csproj", "{45C700F7-AFA5-4C54-BDCB-D2A65D9C1B0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagementApp.Domain", "TaskManagementApp.Domain\TaskManagementApp.Domain.csproj", "{E0888213-852B-4E2C-817F-4801EEAD3CE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagementApp.Application", "TaskManagementApp.Application\TaskManagementApp.Application.csproj", "{1420AD9B-ED69-428D-B3F6-2DD3553BC51E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagementApp.Infrastructure", "TaskManagementApp.Infrastructure\TaskManagementApp.Infrastructure.csproj", "{DF37784B-21DA-434E-9667-D3921ACD7D3B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL_Scripts", "SQL_Scripts", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		SQL_Scripts\CreationQueries.sql = SQL_Scripts\CreationQueries.sql
+		SQL_Scripts\DummyData.sql = SQL_Scripts\DummyData.sql
+		SQL_Scripts\Task_SP.sql = SQL_Scripts\Task_SP.sql
+		SQL_Scripts\User_SP.sql = SQL_Scripts\User_SP.sql
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45C700F7-AFA5-4C54-BDCB-D2A65D9C1B0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45C700F7-AFA5-4C54-BDCB-D2A65D9C1B0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45C700F7-AFA5-4C54-BDCB-D2A65D9C1B0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45C700F7-AFA5-4C54-BDCB-D2A65D9C1B0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0888213-852B-4E2C-817F-4801EEAD3CE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0888213-852B-4E2C-817F-4801EEAD3CE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0888213-852B-4E2C-817F-4801EEAD3CE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0888213-852B-4E2C-817F-4801EEAD3CE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1420AD9B-ED69-428D-B3F6-2DD3553BC51E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1420AD9B-ED69-428D-B3F6-2DD3553BC51E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1420AD9B-ED69-428D-B3F6-2DD3553BC51E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1420AD9B-ED69-428D-B3F6-2DD3553BC51E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF37784B-21DA-434E-9667-D3921ACD7D3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF37784B-21DA-434E-9667-D3921ACD7D3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF37784B-21DA-434E-9667-D3921ACD7D3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF37784B-21DA-434E-9667-D3921ACD7D3B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {893BF338-DD09-4B8C-84A1-5D577D7EC2E3}
+	EndGlobalSection
+EndGlobal
