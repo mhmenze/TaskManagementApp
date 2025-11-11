@@ -15,7 +15,8 @@ namespace TaskManagementApp.Api.Filters
 
         public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
         {
-            var userID = context.HttpContext.Session.GetInt32("UserID");
+            var userIDStr = context.HttpContext.Session.GetString("UserID");
+            long? userID = long.TryParse(userIDStr, out var val) ? val : null;
             var username = context.HttpContext.Session.GetString("Username");
 
             if (userID == null || string.IsNullOrEmpty(username))

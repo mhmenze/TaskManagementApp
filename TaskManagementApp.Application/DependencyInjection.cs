@@ -1,5 +1,4 @@
-﻿// Application/DependencyInjection.cs
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using TaskManagementApp.Application.Interfaces;
 using TaskManagementApp.Application.Services;
 

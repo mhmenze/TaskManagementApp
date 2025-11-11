@@ -32,7 +32,6 @@ namespace TaskManagementApp.Application.Services
                     };
                 }
 
-                // Verify password (assuming password is hashed in DB)
                 if (!VerifyPassword(password, user.Password))
                 {
                     return new LoginResponse
@@ -68,7 +67,6 @@ namespace TaskManagementApp.Application.Services
         {
             try
             {
-                //Check if username or email already exist
                 if (await _userRepository.UsernameExistsAsync(request.Username))
                 {
                     return new RegisterResponse
@@ -87,11 +85,8 @@ namespace TaskManagementApp.Application.Services
                     };
                 }
 
-                //Hash password
-                // (for now, plain text; use BCrypt in production)
-                string hashedPassword = request.Password;
+                string hashedPassword = BCrypt.Net.BCrypt.HashPassword(request.Password);
 
-                //Create user
                 var user = new User
                 {
                     FirstName = request.FirstName,
@@ -101,7 +96,7 @@ namespace TaskManagementApp.Application.Services
                     Username = request.Username,
                     Password = hashedPassword,
                     Email = request.Email,
-                    CreatedBy = request.CreatedBy ?? "Self"
+                    CreatedBy = request.CreatedBy ?? "System"
                 };
 
                 var newUser = await _userRepository.CreateAsync(user);
@@ -110,7 +105,7 @@ namespace TaskManagementApp.Application.Services
                 {
                     Success = true,
                     Message = "User registered successfully",
-                    UserID = newUser.UserID
+                    UserID = newUser?.UserID
                 };
             }
             catch (Exception ex)
@@ -126,9 +121,7 @@ namespace TaskManagementApp.Application.Services
 
         private bool VerifyPassword(string inputPassword, string storedPassword)
         {
-            // For now, using simple comparison
-            // In production, use BCrypt or similar: BCrypt.Net.BCrypt.Verify(inputPassword, storedPassword)
-            return inputPassword == storedPassword;
+            return BCrypt.Net.BCrypt.Verify(inputPassword, storedPassword);
         }
     }
 }

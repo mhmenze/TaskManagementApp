@@ -1,4 +1,3 @@
-// Api/Program.cs
 using Microsoft.AspNetCore.Authentication.Cookies;
 using TaskManagementApp.Api.Filters;
 using TaskManagementApp.Application;
@@ -6,12 +5,10 @@ using TaskManagementApp.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Configure Session
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
@@ -22,7 +19,6 @@ builder.Services.AddSession(options =>
     options.Cookie.SecurePolicy = CookieSecurePolicy.None;
 });
 
-// Configure CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngularApp", policy =>
@@ -34,11 +30,10 @@ builder.Services.AddCors(options =>
     });
 });
 
-// Get connection string
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new InvalidOperationException("Connection string not found");
 
-
+/////Check
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
@@ -53,21 +48,17 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 
 builder.Services.AddAuthorization();
 
-// Register layer dependencies using extension methods
 builder.Services.AddInfrastructure(connectionString);
 builder.Services.AddApplication();
 
-// Register filters
 builder.Services.AddScoped<AuthenticationFilter>();
 
-// Add logging
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 builder.Logging.AddDebug();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

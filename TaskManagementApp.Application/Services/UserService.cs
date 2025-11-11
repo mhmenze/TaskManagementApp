@@ -3,6 +3,7 @@ using TaskManagementApp.Application.Interfaces;
 using TaskManagementApp.Domain;
 using TaskManagementApp.Domain.DTOs;
 using TaskManagementApp.Infrastructure.Repositories;
+using BCrypt.Net;
 
 namespace TaskManagementApp.Application.Services
 {
@@ -47,14 +48,12 @@ namespace TaskManagementApp.Application.Services
         {
             try
             {
-                // Check if username already exists
                 if (await _userRepository.UsernameExistsAsync(request.Username))
                 {
                     _logger.LogWarning("Username already exists: {Username}", request.Username);
                     return null;
                 }
 
-                // Check if email already exists
                 if (await _userRepository.EmailExistsAsync(request.Email))
                 {
                     _logger.LogWarning("Email already exists: {Email}", request.Email);
@@ -115,9 +114,7 @@ namespace TaskManagementApp.Application.Services
 
         private string HashPassword(string password)
         {
-            // For now, storing as plain text (NOT RECOMMENDED FOR PRODUCTION)
-            // In production, use: BCrypt.Net.BCrypt.HashPassword(password)
-            return password;
+            return BCrypt.Net.BCrypt.HashPassword(password);
         }
     }
 }

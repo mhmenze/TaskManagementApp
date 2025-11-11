@@ -118,7 +118,7 @@ namespace TaskManagementApp.Api.Controllers
                     });
                 }
 
-                user.Password = string.Empty; // Remove password from response
+                user.Password = string.Empty;
 
                 return CreatedAtAction(
                     nameof(GetById),
@@ -167,7 +167,7 @@ namespace TaskManagementApp.Api.Controllers
                     });
                 }
 
-                user.Password = string.Empty; // Remove password from response
+                user.Password = string.Empty;
 
                 return Ok(new ApiResponse<User>
                 {
@@ -220,7 +220,5 @@ namespace TaskManagementApp.Api.Controllers
                 });
             }
         }
-
-
     }
 }

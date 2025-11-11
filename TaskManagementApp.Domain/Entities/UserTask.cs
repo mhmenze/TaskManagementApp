@@ -4,6 +4,7 @@ namespace TaskManagementApp.Domain
 {
     public class UserTask
     {
+        [Required]
         public long TaskID { get; set; }
 
         [Required]

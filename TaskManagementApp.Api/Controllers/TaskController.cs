@@ -27,7 +27,27 @@ namespace TaskManagementApp.Api.Controllers
         {
             try
             {
-                var tasks = await _taskService.GetAllTasksAsync(filter);
+                var tasks = new List<UserTask>();
+                var userRole = HttpContext.Session.GetString("UserRole");
+                var userIDStr = HttpContext.Session.GetString("UserID");
+                long userId = long.TryParse(userIDStr, out var val) ? val : 0;
+
+                if (filter!=null && !String.IsNullOrWhiteSpace(userRole) && userId > 0)
+                {
+                    if(userRole == "admin")
+                        tasks = await _taskService.GetAllTasksAsync(filter);
+                    else
+                        tasks = await _taskService.GetTasksByUserIDAsync(userId);
+                }
+                else
+                {
+                    return BadRequest(new ApiResponse<List<UserTask>>
+                    {
+                        Success = false,
+                        Message = "Missing filter or requesting user information",
+                        Data = null
+                    });
+                }
                 return Ok(new ApiResponse<List<UserTask>>
                 {
                     Success = true,

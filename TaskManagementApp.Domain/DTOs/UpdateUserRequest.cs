@@ -7,8 +7,8 @@
         public string? LastName { get; set; }
         public string? DisplayName { get; set; }
         public string? Username { get; set; }
-        public string? Password { get; set; }  // optional
-        public string? UserRole { get; set; }  // optional
+        public string? Password { get; set; } 
+        public string? UserRole { get; set; }
         public string? Email { get; set; }
     }
 

@@ -101,7 +101,6 @@ namespace TaskManagementApp.Application.Services
                 existingTask.UpdatedOn = DateTime.UtcNow;
                 existingTask.UpdatedBy = updatedBy;
 
-                // Check if task is delayed
                 if (existingTask.Deadline.HasValue &&
                     existingTask.Deadline.Value < DateTime.UtcNow &&
                     existingTask.Status != TaskCurrentStatus.Completed)

@@ -32,7 +32,6 @@ namespace TaskManagementApp.Infrastructure.Repositories
                     CommandType = CommandType.StoredProcedure
                 };
 
-                // Add filter parameters
                 if (filter != null)
                 {
                     command.Parameters.AddWithValue("@Status",
@@ -77,7 +76,6 @@ namespace TaskManagementApp.Infrastructure.Repositories
                     CommandType = CommandType.StoredProcedure
                 };
 
-                // Add filter parameters
                 if (userID != 0)
                 {
                     command.Parameters.AddWithValue("@UserID", userID);

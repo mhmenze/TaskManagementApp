@@ -9,6 +9,7 @@ namespace TaskManagementApp.Domain
 {
     public class User
     {
+        [Required]
         public long UserID { get; set; }
 
         [Required]

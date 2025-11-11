@@ -51,8 +51,9 @@ namespace TaskManagementApp.Api.Controllers
                     });
                 }
 
-                HttpContext.Session.SetInt32("UserID", (int)result.UserID);
+                HttpContext.Session.SetString("UserID", ((long)result.UserID).ToString());
                 HttpContext.Session.SetString("Username", result.Username);
+                HttpContext.Session.SetString("UserRole", result.UserRole);
 
                 return Ok(new ApiResponse<LoginResponse>
                 {
@@ -86,7 +87,8 @@ namespace TaskManagementApp.Api.Controllers
         [HttpGet("current-user")]
         public IActionResult GetCurrentUser()
         {
-            var userID = HttpContext.Session.GetInt32("UserID");
+            var userIdStr = HttpContext.Session.GetString("UserID");
+            long? userID = long.TryParse(userIdStr, out var val) ? val : null;
             var username = HttpContext.Session.GetString("Username");
 
             if (userID == null || string.IsNullOrEmpty(username))
@@ -104,89 +106,6 @@ namespace TaskManagementApp.Api.Controllers
                 Data = new { UserID = userID.Value, Username = username }
             });
         }
-
-        //[HttpPost("login")]
-        //public async Task<ActionResult<ApiResponse<LoginResponse>>> Login([FromBody] LoginRequest request)
-        //{
-        //    try
-        //    {
-        //        if (!ModelState.IsValid)
-        //        {
-        //            return BadRequest(new ApiResponse<LoginResponse>
-        //            {
-        //                Success = false,
-        //                Message = "Invalid request",
-        //                Errors = ModelState.Values
-        //                    .SelectMany(v => v.Errors)
-        //                    .Select(e => e.ErrorMessage)
-        //                    .ToList()
-        //            });
-        //        }
-
-        //        var result = await _authService.AuthenticateAsync(request.Username, request.Password);
-
-        //        if (!result.Success)
-        //        {
-        //            return Unauthorized(new ApiResponse<LoginResponse>
-        //            {
-        //                Success = false,
-        //                Message = result.Message,
-        //                Data = result
-        //            });
-        //        }
-        //        var claims = new List<Claim>
-        //        {
-        //            new Claim(ClaimTypes.Name, result.Username),
-        //            new Claim(ClaimTypes.Role, result.UserRole),
-        //            new Claim(ClaimTypes.NameIdentifier, result.UserID.ToString())
-        //        };
-
-        //        var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-        //        var principal = new ClaimsPrincipal(identity);
-
-        //        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
-
-        //        return Ok(new ApiResponse<LoginResponse>
-        //        {
-        //            Success = true,
-        //            Message = "Login successful",
-        //            Data = result
-        //        });
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        _logger.LogError(ex, "Error during login");
-        //        return StatusCode(500, new ApiResponse<LoginResponse>
-        //        {
-        //            Success = false,
-        //            Message = "An error occurred during login"
-        //        });
-        //    }
-        //}
-
-        //[HttpPost("logout")]
-        //public async Task<IActionResult> Logout()
-        //{
-        //    await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-        //    HttpContext.Session.Clear();
-
-        //    return Ok(new ApiResponse<object>
-        //    {
-        //        Success = true,
-        //        Message = "Logged out successfully"
-        //    });
-        //}
-
-        //[Authorize(Roles = "admin")]
-        //[HttpGet("admin-only")]
-        //public IActionResult AdminOnly()
-        //{
-        //    return Ok(new
-        //    {
-        //        Username = User.Identity?.Name,
-        //        Role = User.FindFirst(ClaimTypes.Role)?.Value
-        //    });
-        //}
 
         [HttpPost("register")]
         public async Task<ActionResult<ApiResponse<RegisterResponse>>> Register([FromBody] RegisterRequest request)
@@ -237,6 +156,5 @@ namespace TaskManagementApp.Api.Controllers
                 });
             }
         }
-
     }
 }

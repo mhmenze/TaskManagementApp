@@ -1,4 +1,6 @@
-﻿using System;
+﻿//Should Implement Notifications feature later
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
