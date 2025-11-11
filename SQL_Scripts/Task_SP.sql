@@ -53,14 +53,18 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
+    DECLARE @Username VARCHAR(50) = '';
+    SELECT TOP 1 @Username = Username FROM Users WHERE UserID = @UserID;
+
     SELECT TaskID, TaskName, TaskDescription, AssignedUserIDs, Status, IsDelayed,
            Deadline, CreatedOn, CreatedBy, UpdatedOn, UpdatedBy
     FROM Tasks
     WHERE EXISTS (
-        SELECT 1 
-        FROM OPENJSON(AssignedUserIDs)
-        WHERE value = CAST(@UserID AS NVARCHAR(20))
-    );
+            SELECT 1 
+            FROM OPENJSON(AssignedUserIDs)
+            WHERE value = CAST(@UserID AS NVARCHAR(20))
+        ) 
+        OR CreatedBy = @Username;
 END
 GO
 
